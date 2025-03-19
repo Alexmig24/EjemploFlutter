@@ -100,9 +100,9 @@ class InicioScreen extends StatelessWidget {
           SizedBox(height: 5),
           CategorySection(),
           SizedBox(height: 5),
-          live_coocking(),
+          LiveCoocking(),
           SizedBox(height: 5),
-          top_chef(),
+          TopChef(),
         ],
       ),
     );
@@ -248,13 +248,20 @@ class PerfilScreen extends StatelessWidget {
   }
 }
 
-class top_chef extends StatelessWidget {
-  const top_chef({
+class TopChef extends StatelessWidget {
+  const TopChef({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
+    final jsonchef = [
+      {'img': 'https://plus.unsplash.com/premium_photo-1689568158814-3b8e9c1a9618?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29uYXxlbnwwfHwwfHx8MA%3D%3D',},
+      {'img': 'https://plus.unsplash.com/premium_photo-1689568158814-3b8e9c1a9618?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29uYXxlbnwwfHwwfHx8MA%3D%3D',},
+      {'img': 'https://plus.unsplash.com/premium_photo-1689568158814-3b8e9c1a9618?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29uYXxlbnwwfHwwfHx8MA%3D%3D',},
+      {'img': 'https://plus.unsplash.com/premium_photo-1689568158814-3b8e9c1a9618?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29uYXxlbnwwfHwwfHx8MA%3D%3D',},
+      {'img': 'https://plus.unsplash.com/premium_photo-1689568158814-3b8e9c1a9618?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29uYXxlbnwwfHwwfHx8MA%3D%3D',},
+    ];
     return Column(
       children: [
         Row(
@@ -276,21 +283,11 @@ class top_chef extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 10),
             child: Row(
               spacing: 10,
-              children: [
-                topchef_container(
-                  img: 'https://plus.unsplash.com/premium_photo-1689568158814-3b8e9c1a9618?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29uYXxlbnwwfHwwfHx8MA%3D%3D',
-                ),
-                topchef_container(
-                  img: 'https://plus.unsplash.com/premium_photo-1689568158814-3b8e9c1a9618?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29uYXxlbnwwfHwwfHx8MA%3D%3D',
-                ),
-                topchef_container(
-                  img: 'https://plus.unsplash.com/premium_photo-1689568158814-3b8e9c1a9618?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29uYXxlbnwwfHwwfHx8MA%3D%3D',
-                ),
-                topchef_container(
-                  img: 'https://plus.unsplash.com/premium_photo-1689568158814-3b8e9c1a9618?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29uYXxlbnwwfHwwfHx8MA%3D%3D',
-                ),
-              ],
-            ),
+              children: jsonchef.map(
+                (chef) => TopChefContainer(
+                  img: chef['img']!)
+                ).toList(),
+            )
           ),
         )
       ],
@@ -298,8 +295,8 @@ class top_chef extends StatelessWidget {
   }
 }
 
-class topchef_container extends StatelessWidget {
-  const topchef_container({
+class TopChefContainer extends StatelessWidget {
+  const TopChefContainer({
     required this.img,
     super.key,
   });
@@ -322,13 +319,35 @@ class topchef_container extends StatelessWidget {
   }
 }
 
-class live_coocking extends StatelessWidget {
-  const live_coocking({
+class LiveCoocking extends StatelessWidget {
+  const LiveCoocking({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
+
+    final jsonlivecocking = [
+      {
+        'imgFondo': 'https://img.hellofresh.com/w_3840,q_auto,f_auto,c_fill,fl_lossy/hellofresh_website/es/cms/SEO/recipes/albondigas-caseras-de-cerdo-con-salsa-barbacoa.jpeg',
+        'imgPerfil': 'https://static.vecteezy.com/system/resources/thumbnails/025/267/741/small_2x/male-chef-portrait-side-view-suitable-for-avatar-social-media-profile-photo-graphic-vector.jpg',
+        'userPerfil': 'Jeff Mcinnis',
+        'titulo': 'Special Strand Pasta',
+      },
+      {
+        'imgFondo': 'https://img.hellofresh.com/w_3840,q_auto,f_auto,c_fill,fl_lossy/hellofresh_website/es/cms/SEO/recipes/albondigas-caseras-de-cerdo-con-salsa-barbacoa.jpeg',
+        'imgPerfil': 'https://static.vecteezy.com/system/resources/thumbnails/025/267/741/small_2x/male-chef-portrait-side-view-suitable-for-avatar-social-media-profile-photo-graphic-vector.jpg',
+        'userPerfil': 'Jeff Mcinnis',
+        'titulo': 'Special Strand Pasta',
+      },
+      {
+        'imgFondo': 'https://img.hellofresh.com/w_3840,q_auto,f_auto,c_fill,fl_lossy/hellofresh_website/es/cms/SEO/recipes/albondigas-caseras-de-cerdo-con-salsa-barbacoa.jpeg',
+        'imgPerfil': 'https://static.vecteezy.com/system/resources/thumbnails/025/267/741/small_2x/male-chef-portrait-side-view-suitable-for-avatar-social-media-profile-photo-graphic-vector.jpg',
+        'userPerfil': 'Jeff Mcinnis',
+        'titulo': 'Special Strand Pasta',
+      },
+    ];
+
     return Column(
       children: [
         Row(
@@ -362,27 +381,15 @@ class live_coocking extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 15),
             child: Row(
               spacing: 10,
-              children: [
-                cocina_contenedor(
-                  img_fondo: 'https://img.hellofresh.com/w_3840,q_auto,f_auto,c_fill,fl_lossy/hellofresh_website/es/cms/SEO/recipes/albondigas-caseras-de-cerdo-con-salsa-barbacoa.jpeg',
-                  img_perfil: 'https://static.vecteezy.com/system/resources/thumbnails/025/267/741/small_2x/male-chef-portrait-side-view-suitable-for-avatar-social-media-profile-photo-graphic-vector.jpg',
-                  user_perfil: 'Jeff Mcinnis',
-                  titulo: 'Special Strand Pasta',
-                  
-                ),
-                cocina_contenedor(
-                  img_fondo: 'https://img.hellofresh.com/w_3840,q_auto,f_auto,c_fill,fl_lossy/hellofresh_website/es/cms/SEO/recipes/albondigas-caseras-de-cerdo-con-salsa-barbacoa.jpeg',
-                  img_perfil: 'https://static.vecteezy.com/system/resources/thumbnails/025/267/741/small_2x/male-chef-portrait-side-view-suitable-for-avatar-social-media-profile-photo-graphic-vector.jpg',
-                  user_perfil: 'Brad',
-                  titulo: 'Special Strand Pasta',
-                ),
-                cocina_contenedor(
-                  img_fondo: 'https://img.hellofresh.com/w_3840,q_auto,f_auto,c_fill,fl_lossy/hellofresh_website/es/cms/SEO/recipes/albondigas-caseras-de-cerdo-con-salsa-barbacoa.jpeg',
-                  img_perfil: 'https://static.vecteezy.com/system/resources/thumbnails/025/267/741/small_2x/male-chef-portrait-side-view-suitable-for-avatar-social-media-profile-photo-graphic-vector.jpg',
-                  user_perfil: 'Brad',
-                  titulo: 'Special Strand Pasta',
-                ),
-              ],
+              children:
+                jsonlivecocking.map(
+                  (livecoocking) => CocinaContenedor(
+                    imgFondo: livecoocking['imgFondo']!,
+                    imgPerfil: livecoocking['imgPerfil']!,
+                    userPerfil: livecoocking['userPerfil']!,
+                    titulo: livecoocking['titulo']!,
+                  )
+                ).toList(),
             ),
           ),
         )
@@ -391,17 +398,17 @@ class live_coocking extends StatelessWidget {
   }
 }
 
-class cocina_contenedor extends StatelessWidget {
-  final String img_fondo; 
-  final String img_perfil;
-  final String user_perfil;
+class CocinaContenedor extends StatelessWidget {
+  final String imgFondo; 
+  final String imgPerfil;
+  final String userPerfil;
   final String titulo;
 
-  const cocina_contenedor({
+  const CocinaContenedor({
     super.key, 
-    required this.img_perfil, 
-    required this.img_fondo,
-    required this.user_perfil,
+    required this.imgPerfil, 
+    required this.imgFondo,
+    required this.userPerfil,
     required this.titulo,
   });
 
@@ -411,7 +418,7 @@ class cocina_contenedor extends StatelessWidget {
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: NetworkImage(img_fondo),
+          image: NetworkImage(imgFondo),
           fit: BoxFit.cover,
           colorFilter: ColorFilter.mode(Color.fromARGB(40, 0, 0, 0), BlendMode.darken),
         ),
@@ -423,9 +430,9 @@ class cocina_contenedor extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            widget_user(
-              img_perfil: img_perfil,
-              user_perfil: user_perfil,
+            WidgetUser(
+              imgPerfil: imgPerfil,
+              userPerfil: userPerfil,
             ),
             Text(
               titulo,
@@ -434,8 +441,8 @@ class cocina_contenedor extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                widget_userstream(
-                  img_perfil: img_perfil,
+                WidgetUserstream(
+                  imgPerfil: imgPerfil,
                 ),
                 Icon(Icons.fullscreen, color: Colors.white,)
               ],
@@ -446,13 +453,13 @@ class cocina_contenedor extends StatelessWidget {
   }
 }
 
-class widget_userstream extends StatelessWidget {
-  const widget_userstream({
-    required this.img_perfil,
+class WidgetUserstream extends StatelessWidget {
+  const WidgetUserstream({
+    required this.imgPerfil,
     super.key,
   });
 
-  final String img_perfil;
+  final String imgPerfil;
 
   @override
   Widget build(BuildContext context) {
@@ -468,14 +475,14 @@ class widget_userstream extends StatelessWidget {
         children: [
           Stack(
             children: [
-              widget_img_profile(perfil: img_perfil),
+              WidgetImgProfile(perfil: imgPerfil),
               Positioned(
                 left: 12, // Desplazamiento horizontal
-                child: widget_img_profile(perfil: img_perfil),
+                child: WidgetImgProfile(perfil: imgPerfil),
               ),
               Positioned(
                 left: 24, // Desplazamiento horizontal
-                child: widget_img_profile(perfil: img_perfil),
+                child: WidgetImgProfile(perfil: imgPerfil),
               ),
               const SizedBox(width: 55),
             ],
@@ -488,15 +495,15 @@ class widget_userstream extends StatelessWidget {
   }
 }
 
-class widget_user extends StatelessWidget {
-  const widget_user({
+class WidgetUser extends StatelessWidget {
+  const WidgetUser({
     super.key,
-    required this.img_perfil,
-    required this.user_perfil,
+    required this.imgPerfil,
+    required this.userPerfil,
   });
 
-  final String img_perfil;
-  final String user_perfil;
+  final String imgPerfil;
+  final String userPerfil;
 
   @override
   Widget build(BuildContext context) {
@@ -512,11 +519,11 @@ class widget_user extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         spacing: 10,
         children: [
-          widget_img_profile(
-            perfil: img_perfil,
+          WidgetImgProfile(
+            perfil: imgPerfil,
           ),
           Text(
-            user_perfil,
+            userPerfil,
             style: TextStyle(color: Colors.white),
           ),
         ],
@@ -525,10 +532,10 @@ class widget_user extends StatelessWidget {
   }
 }
 
-class widget_img_profile extends StatelessWidget {
+class WidgetImgProfile extends StatelessWidget {
   final String perfil;
 
-  const widget_img_profile({
+  const WidgetImgProfile({
     super.key, 
     required this.perfil,
   });
