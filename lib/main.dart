@@ -99,11 +99,14 @@ class InicioScreen extends StatelessWidget {
           TitleSection(),
           SizedBox(height: 20),
           CategorySection(),
+          live_coocking(),
+          top_chef(),
         ],
       ),
     );
   }
 }
+
 
 class TitleSection extends StatelessWidget {
   const TitleSection({super.key});
@@ -241,6 +244,333 @@ class PerfilScreen extends StatelessWidget {
     return const Center(
       // child: Text("Página de Perfil", style: TextStyle(fontSize: 24)),
       child: Placeholder()
+    );
+  }
+}
+
+class top_chef extends StatelessWidget {
+  const top_chef({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Top Chef',
+              style: TextStyle(fontSize: 18),
+            ),
+            Text(
+              'View All',
+              style: TextStyle(color: Color.fromRGBO(180, 180, 180, 1)),
+            ),
+          ],
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: 10),
+            child: Row(
+              spacing: 10,
+              children: [
+                topchef_container(
+                  img: 'https://plus.unsplash.com/premium_photo-1689568158814-3b8e9c1a9618?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29uYXxlbnwwfHwwfHx8MA%3D%3D',
+                ),
+                topchef_container(
+                  img: 'https://plus.unsplash.com/premium_photo-1689568158814-3b8e9c1a9618?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29uYXxlbnwwfHwwfHx8MA%3D%3D',
+                ),
+                topchef_container(
+                  img: 'https://plus.unsplash.com/premium_photo-1689568158814-3b8e9c1a9618?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29uYXxlbnwwfHwwfHx8MA%3D%3D',
+                ),
+                topchef_container(
+                  img: 'https://plus.unsplash.com/premium_photo-1689568158814-3b8e9c1a9618?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29uYXxlbnwwfHwwfHx8MA%3D%3D',
+                ),
+              ],
+            ),
+          ),
+        )
+      ],
+    );
+  }
+}
+
+class topchef_container extends StatelessWidget {
+  const topchef_container({
+    required this.img,
+    super.key,
+  });
+
+  final String img;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: NetworkImage(img),
+          fit: BoxFit.cover,
+        ),
+        borderRadius: BorderRadius.circular(25)
+      ),
+      width: 100,
+      height: 180,
+    );
+  }
+}
+
+class live_coocking extends StatelessWidget {
+  const live_coocking({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            Expanded( // Evita que el Row interno empuje demasiado
+              child: Row(
+                children: [
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        'Live Cooking',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      SizedBox(height: 5),
+                      LiveLabel(),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Text(
+              'View All',
+              style: TextStyle(color: Color.fromRGBO(180, 180, 180, 1)),
+            ),
+          ],
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 15),
+            child: Row(
+              spacing: 10,
+              children: [
+                cocina_contenedor(
+                  img_fondo: 'https://img.hellofresh.com/w_3840,q_auto,f_auto,c_fill,fl_lossy/hellofresh_website/es/cms/SEO/recipes/albondigas-caseras-de-cerdo-con-salsa-barbacoa.jpeg',
+                  img_perfil: 'https://static.vecteezy.com/system/resources/thumbnails/025/267/741/small_2x/male-chef-portrait-side-view-suitable-for-avatar-social-media-profile-photo-graphic-vector.jpg',
+                  user_perfil: 'Jeff Mcinnis',
+                  titulo: 'Special Strand Pasta',
+                  
+                ),
+                cocina_contenedor(
+                  img_fondo: 'https://img.hellofresh.com/w_3840,q_auto,f_auto,c_fill,fl_lossy/hellofresh_website/es/cms/SEO/recipes/albondigas-caseras-de-cerdo-con-salsa-barbacoa.jpeg',
+                  img_perfil: 'https://static.vecteezy.com/system/resources/thumbnails/025/267/741/small_2x/male-chef-portrait-side-view-suitable-for-avatar-social-media-profile-photo-graphic-vector.jpg',
+                  user_perfil: 'Brad',
+                  titulo: 'Special Strand Pasta',
+                ),
+                cocina_contenedor(
+                  img_fondo: 'https://img.hellofresh.com/w_3840,q_auto,f_auto,c_fill,fl_lossy/hellofresh_website/es/cms/SEO/recipes/albondigas-caseras-de-cerdo-con-salsa-barbacoa.jpeg',
+                  img_perfil: 'https://static.vecteezy.com/system/resources/thumbnails/025/267/741/small_2x/male-chef-portrait-side-view-suitable-for-avatar-social-media-profile-photo-graphic-vector.jpg',
+                  user_perfil: 'Brad',
+                  titulo: 'Special Strand Pasta',
+                ),
+              ],
+            ),
+          ),
+        )
+      ],
+    );
+  }
+}
+
+class cocina_contenedor extends StatelessWidget {
+  final String img_fondo; 
+  final String img_perfil;
+  final String user_perfil;
+  final String titulo;
+
+  const cocina_contenedor({
+    super.key, 
+    required this.img_perfil, 
+    required this.img_fondo,
+    required this.user_perfil,
+    required this.titulo,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: NetworkImage(img_fondo),
+          fit: BoxFit.cover,
+          colorFilter: ColorFilter.mode(Color.fromARGB(40, 0, 0, 0), BlendMode.darken),
+        ),
+        borderRadius: BorderRadius.circular(20)
+      ),
+      width: 250,
+      height: 150,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            widget_user(
+              img_perfil: img_perfil,
+              user_perfil: user_perfil,
+            ),
+            Text(
+              titulo,
+              style: TextStyle(color: Colors.white, fontSize: 16),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                widget_userstream(
+                  img_perfil: img_perfil,
+                ),
+                Icon(Icons.center_focus_weak_outlined, color: Colors.white,)
+              ],
+            )
+          ],
+        ),
+    );
+  }
+}
+
+class widget_userstream extends StatelessWidget {
+  const widget_userstream({
+    required this.img_perfil,
+    super.key,
+  });
+
+  final String img_perfil;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: Color.fromRGBO(248, 227, 209, 1),
+      ),
+      height: 25,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Stack(
+            children: [
+              widget_img_profile(perfil: img_perfil),
+              Positioned(
+                left: 12, // Desplazamiento horizontal
+                child: widget_img_profile(perfil: img_perfil),
+              ),
+              Positioned(
+                left: 24, // Desplazamiento horizontal
+                child: widget_img_profile(perfil: img_perfil),
+              ),
+              const SizedBox(width: 55),
+            ],
+          ),
+          
+          Text('+ 99 k'),
+        ],
+      ),
+    );
+  }
+}
+
+class widget_user extends StatelessWidget {
+  const widget_user({
+    super.key,
+    required this.img_perfil,
+    required this.user_perfil,
+  });
+
+  final String img_perfil;
+  final String user_perfil;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      
+      padding: EdgeInsets.symmetric(horizontal: 10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: Color.fromRGBO(200, 200, 200, 0.6),
+      ),
+      height: 35,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        spacing: 10,
+        children: [
+          widget_img_profile(
+            perfil: img_perfil,
+          ),
+          Text(
+            user_perfil,
+            style: TextStyle(color: Colors.white),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class widget_img_profile extends StatelessWidget {
+  final String perfil;
+
+  const widget_img_profile({
+    super.key, 
+    required this.perfil,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    double altura = 25;
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: NetworkImage(perfil),
+          fit: BoxFit.cover,
+        ),
+        borderRadius: BorderRadius.circular(altura),
+      ),
+      width: altura,
+      height: altura,
+    );
+  }
+}
+
+
+class LiveLabel extends StatelessWidget {
+  const LiveLabel({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: Color.fromRGBO(255, 210, 215, 0.8),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      child: Row(
+        spacing: 3,
+        children: [
+          Icon(Icons.adjust_sharp, size: 18, color: Colors.red),
+          Text('500 Live'),
+        ],
+      ),
     );
   }
 }
