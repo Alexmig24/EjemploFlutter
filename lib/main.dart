@@ -123,7 +123,7 @@ class TitleSection extends StatelessWidget {
           children: [
             Text(
               "Categorías",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             Opacity(opacity: 0.5, 
               child: Text(
