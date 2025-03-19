@@ -16,25 +16,50 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _selectedIndex = 0; // Índice del menú seleccionado
+
+  // Lista de pantallas asociadas a cada botón
+  final List<Widget> _screens = [
+    const InicioScreen(), // Mantiene el contenido original
+    const BuscarScreen(),
+    const AgregarScreen(),
+    const NotificacionesScreen(),
+    const PerfilScreen(),
+  ];
+
+  // Método para cambiar la pantalla cuando se selecciona un ítem
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ListView(
-          children: const [
-            TitleSection(),
-            SizedBox(height: 20),
-            CategorySection(),
-            
-          ],
-        ),
+      body: _screens[_selectedIndex], // Muestra la pantalla seleccionada
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Colors.red,
+        unselectedItemColor: Colors.grey,
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped, // Cambia la pantalla al tocar un botón
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Inicio'),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Buscar'),
+          BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Añadir'),
+          BottomNavigationBarItem(icon: Icon(Icons.notifications), label: 'Notificaciones'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Perfil'),
+        ],
       ),
-      bottomNavigationBar: const MenuSection(),
     );
   }
 
@@ -42,7 +67,7 @@ class HomeScreen extends StatelessWidget {
     return AppBar(
       backgroundColor: Colors.white,
       elevation: 0,
-      leading: Padding(
+     leading: Padding(
         padding: const EdgeInsets.all(8.0),
         child: CircleAvatar(
           backgroundImage: NetworkImage(
@@ -62,6 +87,23 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
+class InicioScreen extends StatelessWidget {
+  const InicioScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ListView(
+        children: const [
+          TitleSection(),
+          SizedBox(height: 20),
+          CategorySection(),
+        ],
+      ),
+    );
+  }
+}
 
 class TitleSection extends StatelessWidget {
   const TitleSection({super.key});
@@ -83,9 +125,11 @@ class TitleSection extends StatelessWidget {
               "Categorías",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            Text(
-              "Ver todo",
-              style: TextStyle(fontSize: 20),
+            Opacity(opacity: 0.5, 
+              child: Text(
+                "Ver todo",
+                style: TextStyle(fontSize:18),
+              )
             ),
           ],
         ),
@@ -108,7 +152,7 @@ class CategorySection extends StatelessWidget {
     ];
 
     return SizedBox(
-      height: 80, // Define una altura adecuada para la sección
+      height: 80, 
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(
@@ -142,7 +186,7 @@ class CategoryButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
-        mainAxisSize: MainAxisSize.min, // Ajusta el tamaño del contenedor al contenido
+        mainAxisSize: MainAxisSize.min, 
         children: [
           Image.network(imagePath, width: 30),
           const SizedBox(width: 10),
@@ -153,23 +197,50 @@ class CategoryButton extends StatelessWidget {
   }
 }
 
-class MenuSection extends StatelessWidget {
-  const MenuSection({super.key});
+class BuscarScreen extends StatelessWidget {
+  const BuscarScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      
-      type: BottomNavigationBarType.fixed, // Evita cambios de tamaño
-      selectedItemColor: Colors.orange, // Color del icono seleccionado
-      unselectedItemColor: Colors.grey, // Color de iconos no seleccionados
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Inicio'),
-        BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Buscar'),
-        BottomNavigationBarItem(icon: Icon(Icons.hdr_plus), label: ''),
-        BottomNavigationBarItem(icon: Icon(Icons.campaign), label: 'Favoritos'),
-        BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Perfil'),
-      ],
+    return const Center(
+      // child: Text("Página de Búsqueda", style: TextStyle(fontSize: 24)),
+      child: Placeholder()
+    );
+  }
+}
+
+class AgregarScreen extends StatelessWidget {
+  const AgregarScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      // child: Text("Página de Añadir", style: TextStyle(fontSize: 24)),
+      child: Placeholder()
+    );
+  }
+}
+
+class NotificacionesScreen extends StatelessWidget {
+  const NotificacionesScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      // child: Text("Página de Notificaciones", style: TextStyle(fontSize: 24)),
+      child: Placeholder()
+    );
+  }
+}
+
+class PerfilScreen extends StatelessWidget {
+  const PerfilScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      // child: Text("Página de Perfil", style: TextStyle(fontSize: 24)),
+      child: Placeholder()
     );
   }
 }
