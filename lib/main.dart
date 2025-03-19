@@ -155,19 +155,24 @@ class CategorySection extends StatelessWidget {
     ];
 
     return SizedBox(
-      height: 80, 
+      height: 80,
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
-        child: Row(
-          children: categories
-              .map((category) => Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: CategoryButton(
-                      text: category["title"]!,
-                      imagePath: category["image"]!,
-                    ),
-                  ))
-              .toList(),
+        child: Container( 
+          alignment: Alignment.center,
+          width: MediaQuery.of(context).size.width,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center, 
+            children: categories
+                .map((category) => Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: CategoryButton(
+                        text: category["title"]!,
+                        imagePath: category["image"]!,
+                      ),
+                    ))
+                .toList(),
+          ),
         ),
       ),
     );
@@ -556,7 +561,6 @@ class WidgetImgProfile extends StatelessWidget {
     );
   }
 }
-
 
 class LiveLabel extends StatelessWidget {
   const LiveLabel({
