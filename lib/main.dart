@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Inicio'),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Buscar'),
-          BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Añadir'),
+          BottomNavigationBarItem(icon: Icon(Icons.add_circle_outline_rounded), label: 'Añadir'),
           BottomNavigationBarItem(icon: Icon(Icons.notifications), label: 'Notificaciones'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Perfil'),
         ],
@@ -97,9 +97,11 @@ class InicioScreen extends StatelessWidget {
       child: ListView(
         children: const [
           TitleSection(),
-          SizedBox(height: 20),
+          SizedBox(height: 5),
           CategorySection(),
+          SizedBox(height: 5),
           live_coocking(),
+          SizedBox(height: 5),
           top_chef(),
         ],
       ),
@@ -120,7 +122,7 @@ class TitleSection extends StatelessWidget {
           "¿Qué deseas comprar hoy?",
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
         ),
-        SizedBox(height: 20),
+        SizedBox(height: 10),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -128,12 +130,10 @@ class TitleSection extends StatelessWidget {
               "Categorías",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            Opacity(opacity: 0.5, 
-              child: Text(
-                "Ver todo",
-                style: TextStyle(fontSize:18),
-              )
-            ),
+            Text(
+              "Ver todo",
+              style: TextStyle(color: Color.fromRGBO(180, 180, 180, 1)),
+            )
           ],
         ),
       ],
@@ -262,7 +262,7 @@ class top_chef extends StatelessWidget {
           children: [
             Text(
               'Top Chef',
-              style: TextStyle(fontSize: 18),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             Text(
               'View All',
@@ -341,7 +341,7 @@ class live_coocking extends StatelessWidget {
                     children: [
                       Text(
                         'Live Cooking',
-                        style: TextStyle(fontSize: 18),
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(height: 5),
                       LiveLabel(),
@@ -437,7 +437,7 @@ class cocina_contenedor extends StatelessWidget {
                 widget_userstream(
                   img_perfil: img_perfil,
                 ),
-                Icon(Icons.center_focus_weak_outlined, color: Colors.white,)
+                Icon(Icons.fullscreen, color: Colors.white,)
               ],
             )
           ],
